@@ -6,6 +6,7 @@ Simon.Model = function() {
   var sequence = [];
   var currentElement = 0;
   var strict = true;
+  var gameColors = ["yellow","blue","green","red",];
 
   //public
   var simon = {
@@ -38,7 +39,28 @@ Simon.Model = function() {
       this.resetCurrentElement();
     },
     checkCurrentElement: function(guess) {
-      return (sequence[currentElement] == guess)
+      return (sequence[currentElement] == guess);
+    },
+    pickRandomElement: function() {
+      return gameColors[Math.floor(4*Math.random())]
+    },
+    successSequence: function() {
+      if(sequence.length >= 20) {
+        this.winGame();
+      } else {
+        this.incrementCurrentElement();
+        newElement = this.pickRandomElement();
+        this.addElement(newElement);
+      };
+    },
+    failSequence: function() {
+      if(strict) {
+        this.loseGame();
+      };
+    },
+    winGame: function() {
+    },
+    loseGame: function() {
     },
   };
   return simon;
