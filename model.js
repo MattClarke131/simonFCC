@@ -5,7 +5,7 @@ Simon.Model = function() {
   //private
   var sequence = [];
   var currentElement = 0;
-  var strict = true;
+  var strict = false;
   var gameColors = ["yellow","blue","green","red",];
 
   //public
@@ -26,12 +26,16 @@ Simon.Model = function() {
     toggleStrict: function() {
       strict = !strict;
     },
+
     //get methods
     getSequence: function() {
       return sequence;
     },
     getCurrentElement: function() {
       return currentElement;
+    },
+    getStrictValue: function() {
+      return strict;
     },
     getGameColors: function() {
       return gameColors;
