@@ -1,26 +1,33 @@
 .simonGame {
   text-align: center;
 }
-
 .simonGame .gameButton {
   height: 10em;
   width: 10em;
 }
-
-.redButton {
+.redButton.inactive {
   background-color: #F99;
 }
-
-.blueButton {
+.redButton.active {
+  background-color: #F00;
+}
+.blueButton.inactive {
   background-color: #99F;
 }
-
-.yellowButton {
-  background-color: #FF9;
+.blueButton.active {
+  background-color: #00F;
 }
-
-.greenButton {
+.yellowButton.inactive {
+  background-color: #FEB;
+}
+.yellowButton.active {
+  background-color: #FF0;
+}
+.greenButton.inactive{
   background-color: #9F9;
+}
+.greenButton.active {
+  background-color: #0F0;
 }
 
 footer {

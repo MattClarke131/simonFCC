@@ -33,6 +33,9 @@ Simon.Model = function() {
     getCurrentElement: function() {
       return currentElement;
     },
+    getGameColors: function() {
+      return gameColors;
+    },
     //game play methods
     startGame: function() {
       this.resetSequence();
