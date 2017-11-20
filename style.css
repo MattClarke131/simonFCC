@@ -1,0 +1,28 @@
+.simonGame {
+  text-align: center;
+}
+
+.simonGame .gameButton {
+  height: 10em;
+  width: 10em;
+}
+
+.redButton {
+  background-color: #F99;
+}
+
+.blueButton {
+  background-color: #99F;
+}
+
+.yellowButton {
+  background-color: #FF9;
+}
+
+.greenButton {
+  background-color: #9F9;
+}
+
+footer {
+  text-align: center;
+}
