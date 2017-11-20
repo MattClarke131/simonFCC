@@ -30,6 +30,18 @@ Simon.Controller = function(node) {
       setTimeout(function() {controller.makeButtonActive(color)},delay);
       setTimeout(function() {controller.makeButtonInactive(color)},delay+length);
     },
+    playIntro: function() {
+      var controller = this;
+      for(color in controller.model.getGameColors()) {
+        controller.flashButton(controller.model.getGameColors()[color],0,500);
+      };
+      for(color in controller.model.getGameColors()) {
+        controller.flashButton(controller.model.getGameColors()[color],1000,500);
+      };
+      for(color in controller.model.getGameColors()) {
+        controller.flashButton(controller.model.getGameColors()[color],2000,500);
+      };
+    },
   };
 };
 
