@@ -24,6 +24,12 @@ Simon.Controller = function(node) {
         controller.simonGame.getElementsByClassName(color+"Button")[0].classList.add("inactive");
       };
     },
+    flashButton: function(color,length) {
+      /// Accepts a string and a number in milleseconds
+      var controller = this;
+      controller.makeButtonActive(color);
+      setTimeout(function() {controller.makeButtonInactive(color)},length);
+    },
   };
 };
 
