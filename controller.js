@@ -61,6 +61,14 @@ Simon.Controller = function(node) {
       var button = this.simonGame.getElementsByClassName(buttonName)[0];
       button.removeAttribute("onclick");
     },
+    simonButtonGuess: function(color) {
+      controller.bindSimonButton(
+        function() {
+          controller.flashButton(color,0,500);
+          // SOME GUESS FUNCTION?
+        },
+        color+"Button")
+    },
   };
 };
 
