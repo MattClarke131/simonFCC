@@ -1,5 +1,6 @@
 .simonGame {
   text-align: center;
+  background-color: #445
 }
 .simonGame .gameButton {
   height: 10em;
@@ -18,7 +19,7 @@
   background-color: #00F;
 }
 .yellowButton.inactive {
-  background-color: #FEB;
+  background-color: #E5D5A5;
 }
 .yellowButton.active {
   background-color: #FF0;
