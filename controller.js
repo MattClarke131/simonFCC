@@ -42,6 +42,13 @@ Simon.Controller = function(node) {
         controller.flashButton(controller.model.getGameColors()[color],2000,500);
       };
     },
+    displaySequence: function(sequence) {
+      /// Accepts an array of strings
+      var controller = this;
+      for(var el in sequence) {
+        controller.flashButton(sequence[el], 1000*el, 500);
+      };
+    },
   };
 };
 
