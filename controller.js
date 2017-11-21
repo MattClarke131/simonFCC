@@ -4,6 +4,8 @@ Simon.Controller = function(node) {
   return {
     simonGame: node,
     model: Simon.Model(),
+
+    // DISPLAY FUNCTIONS
     makeButtonActive: function(color) {
       /// Accepts strings
       var controller = this;
@@ -48,6 +50,16 @@ Simon.Controller = function(node) {
       for(var el in sequence) {
         controller.flashButton(sequence[el], 1000*el, 500);
       };
+    },
+
+    // BINDING FUNCTIONS
+    bindSimonButton: function(func, buttonName) {
+      var button = this.simonGame.getElementsByClassName(buttonName)[0]
+      button.onclick = func;
+    },
+    unbindSimonButton: function(buttonName) {
+      var button = this.simonGame.getElementsByClassName(buttonName)[0];
+      button.removeAttribute("onclick");
     },
   };
 };
