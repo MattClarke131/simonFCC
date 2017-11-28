@@ -49,6 +49,16 @@ Simon.Controller = function(node) {
         controller.flashButton(sequence[el], 1000*el, 500);
       };
     },
+
+     // BINDING FUNCTIONS
+     bindSimonButton: function(func, buttonName) {
+       var button = this.simonGame.getElementsByClassName(buttonName)[0]
+       button.onclick = func;
+     },
+     unbindSimonButton: function(buttonName) {
+       var button = this.simonGame.getElementsByClassName(buttonName)[0];
+       button.removeAttribute("onclick");
+     },
   };
 };
 
