@@ -10,64 +10,50 @@ Simon.Model = function() {
 
   //public
   var simon = {
-    //set methods
-    resetSequence: function() {
-      sequence = [];
+    getGameColors: function() {
+      return gameColors;
     },
-    addElement: function(newElement) {
-      sequence.push(newElement);
-    },
-    incrementCurrentElement: function() {
-      currentElement++;
-    },
-    resetCurrentElement: function() {
-      currentElement = 0;
+    getSequence: function() {
+      return sequence;
     },
     toggleStrict: function() {
       strict = !strict;
     },
-
-    //get methods
-    getSequence: function() {
-      return sequence;
+    resetGame: function() {
+      sequence = [];
+      currentElement = 0;
     },
-    getCurrentElement: function() {
-      return currentElement;
-    },
-    getStrictValue: function() {
-      return strict;
-    },
-    getGameColors: function() {
-      return gameColors;
-    },
-    //game play methods
-    startGame: function() {
-      this.resetSequence();
-      this.resetCurrentElement();
-    },
-    checkCurrentElement: function(guess) {
-      return (sequence[currentElement] == guess);
-    },
-    pickRandomElement: function() {
-      return gameColors[Math.floor(4*Math.random())]
-    },
-    successSequence: function() {
-      if(sequence.length >= 20) {
-        this.winGame();
-      } else {
-        this.incrementCurrentElement();
-        newElement = this.pickRandomElement();
-        this.addElement(newElement);
+    makeGuess: function(guess) {
+      if (sequence[currentElement] === guess && curentElement === 19) {
+        return "winGame";
+      } else if (sequence[currentElement] === guess && currentElement === sequence.length - 1) {
+        return "winRound";
+      } else if (sequence[currentElement] === guess && currentElement < sequence.length - 1) {
+        return "winGuess";
+      } else if (sequence[currentElement] !== guess && strict) {
+        return "loseGame";
+      } else if (sequence[currentElement] !== guess && !strict) {
+        return "loseRound";
       };
     },
-    failSequence: function() {
-      if(strict) {
-        this.loseGame();
-      };
+    incrementCurrentElement: function() {
+      currentElement++;
+    },
+    beginNextRound: function() {
+      this.incrementSequence();
+      currentElement = 0;
+    },
+    incrementSequence: function() {
+      sequence.push(Math.floor(Math.random() * gameColors.length));
+    },
+    resetRound: function() {
+      currentElement = 0;
     },
     winGame: function() {
+      console.log("YOU WIN");
     },
     loseGame: function() {
+      console.log("YOU LOSE");
     },
   };
   return simon;
