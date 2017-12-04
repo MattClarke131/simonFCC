@@ -2,6 +2,21 @@
   text-align: center;
   background-color: #445
 }
+.simonGame .gameButtons {
+    position: relative;
+    width: 20em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.simonGame .gameButtons .cutout {
+    background-color: #445;
+    position: absolute;
+    left: 6em;
+    top: 6em;
+    border-radius: 8em;
+    width: 8em;
+    height: 8em;
+}
 .simonGame .gameButton {
   height: 10em;
   width: 10em;
