@@ -31,11 +31,13 @@ Simon.Model = function() {
         return "winRound";
       } else if (sequence[currentElement] === guess && currentElement < sequence.length - 1) {
         return "winGuess";
-      } else if (sequence[currentElement] !== guess && strict) {
-        return "loseGame";
-      } else if (sequence[currentElement] !== guess && !strict) {
-        return "loseRound";
-      };
+      } else if (sequence[currentElement] !== guess) {
+         if (strict) {
+           return "loseGame";
+         } else {
+           return "loseRound";
+         };
+      }
     },
     incrementCurrentElement: function() {
       currentElement++;
