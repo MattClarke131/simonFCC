@@ -16,6 +16,7 @@
     border-radius: 8em;
     width: 8em;
     height: 8em;
+    z-index: 3;
 }
 .simonGame .gameButton {
   height: 10em;
