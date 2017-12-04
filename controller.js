@@ -8,7 +8,7 @@ Simon.Controller = function(node) {
       /// Accepts strings
       var controller = this;
       if(controller.model.getGameColors().indexOf(color) == -1) {
-        console.log("ERROR: wrong input makeButtonActive()");
+        console.error("invalid color: " + color);
       } else {
         controller.simonGame.getElementsByClassName(color+"Button")[0].classList.remove("inactive")
         controller.simonGame.getElementsByClassName(color+"Button")[0].classList.add("active");
