@@ -4,25 +4,27 @@ Simon.Controller = function(node) {
   return {
     simonGame: node,
     model: Simon.Model(),
-    makeButtonActive: function(color) {
+    _changeButtonActivity: function(color, isActive) {
       /// Accepts strings
       var controller = this;
       if(controller.model.getGameColors().indexOf(color) == -1) {
         console.error("invalid color: " + color);
       } else {
-        controller.simonGame.getElementsByClassName(color+"Button")[0].classList.remove("inactive")
-        controller.simonGame.getElementsByClassName(color+"Button")[0].classList.add("active");
+        var buttonNode = controller.simonGame.getElementsByClassName(color+"Button")[0];
+        if (isActive) {
+          buttonNode.classList.remove("inactive")
+          buttonNode.classList.add("active");
+        } else {
+          buttonNode.classList.remove("active")
+          buttonNode.classList.add("inactive");
+        }
       };
     },
+    makeButtonActive: function(color) {
+        this._changeButtonActivity(color, true);
+    },
     makeButtonInactive: function(color) {
-      /// Accepts strings
-      var controller = this;
-      if(controller.model.getGameColors().indexOf(color) == -1) {
-        console.log("ERROR: wrong input makeButtonActive()");
-      } else {
-        controller.simonGame.getElementsByClassName(color+"Button")[0].classList.remove("active")
-        controller.simonGame.getElementsByClassName(color+"Button")[0].classList.add("inactive");
-      };
+        this._changeButtonActivity(color, false);
     },
     flashButton: function(color, delay, length) {
       /// Accepts a string and a number in milleseconds
