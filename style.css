@@ -6,28 +6,28 @@
   height: 10em;
   width: 10em;
 }
-.redButton.inactive {
+[data-color="red"].inactive {
   background-color: #F99;
 }
-.redButton.active {
+[data-color="red"].active {
   background-color: #F00;
 }
-.blueButton.inactive {
+[data-color="blue"].inactive {
   background-color: #99F;
 }
-.blueButton.active {
+[data-color="blue"].active {
   background-color: #00F;
 }
-.yellowButton.inactive {
+[data-color="yellow"].inactive {
   background-color: #E5D5A5;
 }
-.yellowButton.active {
+[data-color="yellow"].active {
   background-color: #FF0;
 }
-.greenButton.inactive{
+[data-color="green"].inactive{
   background-color: #9F9;
 }
-.greenButton.active {
+[data-color="green"].active {
   background-color: #0F0;
 }
 
