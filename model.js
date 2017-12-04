@@ -5,6 +5,7 @@ Simon.Model = function() {
   //private
   var sequence = [];
   var currentElement = 0;
+  var roundsToWin = 20;
   var strict = false;
   var gameColors = ["yellow","blue","green","red",];
 
@@ -24,7 +25,7 @@ Simon.Model = function() {
       currentElement = 0;
     },
     makeGuess: function(guess) {
-      if (sequence[currentElement] === guess && curentElement === 19) {
+      if (sequence[currentElement] === guess && curentElement === roundsToWin - 1) {
         return "winGame";
       } else if (sequence[currentElement] === guess && currentElement === sequence.length - 1) {
         return "winRound";
