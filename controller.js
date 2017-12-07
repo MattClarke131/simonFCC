@@ -20,6 +20,15 @@ Simon.Controller = function(node) {
         }
       };
     },
+    _changeDisplayLight: function(element, isLit) {
+      if(isLit) {
+        element.classList.remove("lightOff");
+        element.classList.add("lightOn");
+      } else {
+        element.classList.remove("lightOn");
+        element.classList.add("lightOff");
+      }
+    },
     setButtonLightOn: function(color) {
         this._changeButtonLight(color, true);
     },
