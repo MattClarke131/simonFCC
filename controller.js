@@ -26,6 +26,16 @@ Simon.Controller = function(node) {
     makeButtonInactive: function(color) {
         this._changeButtonActivity(color, false);
     },
+    setStrictDisplayOn: function() {
+      simonGame.getElementsByClassName("strictDisplay")
+        .setAttribute("data-status", "strictOn");
+    },
+    setStrictDisplayOff: function() {
+      simonGame.getElementsByClassName("strictDisplay")
+        .setAttribute("data-status", "strictOff");
+    },
+
+
     flashButton: function(color, delay, length) {
       /// Accepts a string and a number in milleseconds
       var controller = this;
