@@ -2,6 +2,42 @@
   text-align: center;
   background-color: #445
 }
+.simonGame .onOffDisplay[data-status="gameOn"] {
+  background-color: #FFF;
+  height: 1em;
+  width: 1em;
+  border-radius: 1em;
+}
+.simonGame .onOffDisplay[data-status="gameOff"] {
+  background-color: #000;
+  height: 1em;
+  width: 1em;
+  border-radius: 1em;
+}
+
+.simonGame .strictDisplay[data-status="strictOff"] {
+  background-color: #000;
+  height: 1em;
+  width: 1em;
+  border-radius: 1em;
+}
+.simonGame .strictDisplay[data-status="strictOn"] {
+  background-color: #FFF;
+  height: 1em;
+  width: 1em;
+  border-radius: 1em;
+}
+.simonGame .gameCount[data-status="gameOff"] {
+  background-color: #000;
+  width: 2em;
+  color: black;
+}
+.simonGame .gameCount[data-status="gameOn"] {
+  background-color: #000;
+  width: 2em;
+  color: red;
+}
+
 .simonGame .gameButtons {
     position: relative;
     width: 20em;
