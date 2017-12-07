@@ -68,15 +68,24 @@ Simon.Controller = function(node) {
       };
     },
 
-     // BINDING FUNCTIONS
-     bindSimonButton: function(func, buttonName) {
-       var button = this.simonGame.getElementsByClassName(buttonName)[0]
-       button.onclick = func;
-     },
-     unbindSimonButton: function(buttonName) {
-       var button = this.simonGame.getElementsByClassName(buttonName)[0];
-       button.removeAttribute("onclick");
-     },
+    // SET PHASE FUNCTIONS
+    setElementActivity: function(element, activity) {
+      element.setAttribute("data-activity", activity);
+    },
+    setInitPhase: function() {
+      var colorButtons = simonGame.getElementsByClassName("gameButton");
+      for(var button in colorButtons) {
+        if(colorButtons.hasOwnProperty(button)) {
+          this.setElementActivity(colorButtons[button], "inactive");
+        }
+      };
+      this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "inactive");
+      this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "inactive");
+      this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], false);
+      this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], false);
+      this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], false);
+      this.simonGame.getElementsByClassName("gameCount")[0].setAttribute("data-gameCount", "00");
+    },
   };
 };
 
