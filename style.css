@@ -71,28 +71,28 @@
   border-radius: 0 0 10em 0;
 }
 
-[data-color="red"].inactive {
+[data-color="red"].lightOff {
   background-color: #F99;
 }
-[data-color="red"].active {
+[data-color="red"].lightOn {
   background-color: #F00;
 }
-[data-color="blue"].inactive {
+[data-color="blue"].lightOff {
   background-color: #99F;
 }
-[data-color="blue"].active {
+[data-color="blue"].lightOn {
   background-color: #00F;
 }
-[data-color="yellow"].inactive {
+[data-color="yellow"].lightOff {
   background-color: #E5D5A5;
 }
-[data-color="yellow"].active {
+[data-color="yellow"].lightOn {
   background-color: #FF0;
 }
-[data-color="green"].inactive{
+[data-color="green"].lightOff{
   background-color: #9F9;
 }
-[data-color="green"].active {
+[data-color="green"].lightOn {
   background-color: #0F0;
 }
 

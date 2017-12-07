@@ -4,27 +4,27 @@ Simon.Controller = function(node) {
   return {
     simonGame: node,
     model: Simon.Model(),
-    _changeButtonActivity: function(color, isActive) {
+    _changeButtonLight: function(color, isLit) {
       /// Accepts strings
       var controller = this;
       if(controller.model.getGameColors().indexOf(color) == -1) {
         console.error("invalid color: " + color);
       } else {
-        var buttonNode = controller.simonGame.getElementsByClassName(color+"Button")[0];
-        if (isActive) {
-          buttonNode.classList.remove("inactive")
-          buttonNode.classList.add("active");
+        var buttonNode = controller.simonGame.querySelector('[data-color='+color+']')
+        if (isLit) {
+          buttonNode.classList.remove("lightOff")
+          buttonNode.classList.add("lightOn");
         } else {
-          buttonNode.classList.remove("active")
-          buttonNode.classList.add("inactive");
+          buttonNode.classList.remove("lightOn")
+          buttonNode.classList.add("lightOff");
         }
       };
     },
-    makeButtonActive: function(color) {
-        this._changeButtonActivity(color, true);
+    setButtonLightOn: function(color) {
+        this._changeButtonLight(color, true);
     },
-    makeButtonInactive: function(color) {
-        this._changeButtonActivity(color, false);
+    setButtonLightOff: function(color) {
+        this._changeButtonLight(color, false);
     },
     setStrictDisplayOn: function() {
       simonGame.getElementsByClassName("strictDisplay")
@@ -39,8 +39,8 @@ Simon.Controller = function(node) {
     flashButton: function(color, delay, length) {
       /// Accepts a string and a number in milleseconds
       var controller = this;
-      setTimeout(function() {controller.makeButtonActive(color)},delay);
-      setTimeout(function() {controller.makeButtonInactive(color)},delay+length);
+      setTimeout(function() {controller.setButtonLightOn(color)},delay);
+      setTimeout(function() {controller.setButtonLightOff(color)},delay+length);
     },
     playIntro: function() {
       var controller = this;
