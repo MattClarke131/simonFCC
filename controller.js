@@ -34,14 +34,11 @@ Simon.Controller = function(node) {
     },
     playIntro: function() {
       var controller = this;
-      for(color in controller.model.getGameColors()) {
-        controller.flashButton(controller.model.getGameColors()[color],0,500);
-      };
-      for(color in controller.model.getGameColors()) {
-        controller.flashButton(controller.model.getGameColors()[color],1000,500);
-      };
-      for(color in controller.model.getGameColors()) {
-        controller.flashButton(controller.model.getGameColors()[color],2000,500);
+      var colors = controller.model.getGameColors();
+      for(color in colors) {
+        controller.flashButton(colors[color],0,500);
+        controller.flashButton(colors[color],1000,500);
+        controller.flashButton(colors[color],2000,500);
       };
     },
     displaySequence: function(sequence) {
