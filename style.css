@@ -2,32 +2,61 @@
   text-align: center;
   background-color: #445
 }
+.simonGame .gameButtons {
+    position: relative;
+    width: 20em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.simonGame .gameButtons .cutout {
+    background-color: #445;
+    position: absolute;
+    left: 6em;
+    top: 6em;
+    border-radius: 8em;
+    width: 8em;
+    height: 8em;
+    z-index: 3;
+}
 .simonGame .gameButton {
   height: 10em;
   width: 10em;
 }
-.redButton.inactive {
+.simonGame .gameButton[data-color="red"] {
+  border-radius: 10em 0 0 0;
+}
+.simonGame .gameButton[data-color="blue"] {
+  border-radius: 0 10em 0 0;
+}
+.simonGame .gameButton[data-color="yellow"] {
+  border-radius: 0 0 0 10em;
+}
+.simonGame .gameButton[data-color="green"] {
+  border-radius: 0 0 10em 0;
+}
+
+[data-color="red"].inactive {
   background-color: #F99;
 }
-.redButton.active {
+[data-color="red"].active {
   background-color: #F00;
 }
-.blueButton.inactive {
+[data-color="blue"].inactive {
   background-color: #99F;
 }
-.blueButton.active {
+[data-color="blue"].active {
   background-color: #00F;
 }
-.yellowButton.inactive {
+[data-color="yellow"].inactive {
   background-color: #E5D5A5;
 }
-.yellowButton.active {
+[data-color="yellow"].active {
   background-color: #FF0;
 }
-.greenButton.inactive{
+[data-color="green"].inactive{
   background-color: #9F9;
 }
-.greenButton.active {
+[data-color="green"].active {
   background-color: #0F0;
 }
 
