@@ -188,6 +188,17 @@ Simon.Controller = function(node) {
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
       this.currentPhase = "losePhase";
     },
+    // Button binds
+    bindOnOffButton: function() {
+      var controller = this;
+      simonGame.getElementsByClassName("onOffButton").onclick = function() {
+        if(controller.currentPhase == "initPhase") {
+          controller.setOnPhase();
+        } else {
+          controller.setInitPhase();
+        }
+      }
+    },
   };
 };
 
