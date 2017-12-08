@@ -213,6 +213,17 @@ Simon.Controller = function(node) {
         }
       }
     },
+    bindStrictButton: function() {
+      var controller = this;
+      simonGame.getElementsByClassName("strictButton")[0].onclick = function() {
+        if(simonGame.getElementsByClassName("strictButton")[0].getAttribute("data-activity" == "inactive") {
+          return;
+        } else {
+          controller.model.toggleStrict();
+          controller.simonGame._changeDisplayLight(simonGame.getElementsByClassName("strictButton")[0],controller.model.getStrictStatus());
+        }
+      }
+    },
   };
 };
 

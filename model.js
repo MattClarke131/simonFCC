@@ -17,12 +17,16 @@ Simon.Model = function() {
     getSequence: function() {
       return sequence;
     },
+    getStrictStatus: function() {
+      return strict;
+    },
     toggleStrict: function() {
       strict = !strict;
     },
     resetGame: function() {
       sequence = [];
       currentElement = 0;
+      strict = false;
     },
     makeGuess: function(guess) {
       if (sequence[currentElement] === guess && currentElement === roundsToWin - 1) {
