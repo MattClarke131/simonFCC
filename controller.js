@@ -4,6 +4,7 @@ Simon.Controller = function(node) {
   return {
     simonGame: node,
     model: Simon.Model(),
+    currentPhase: "",
     _changeButtonLight: function(color, isLit) {
       /// Accepts strings
       var controller = this;
@@ -85,6 +86,7 @@ Simon.Controller = function(node) {
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], false);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], false);
       this.simonGame.getElementsByClassName("gameCount")[0].setAttribute("data-gameCount", "00");
+      this.currentPhase = "initPhase";
     },
     setOnPhase: function() {
       var colorButtons = simonGame.getElementsByClassName("gameButton");
@@ -99,6 +101,7 @@ Simon.Controller = function(node) {
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], false);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
       this.simonGame.getElementsByClassName("gameCount")[0].setAttribute("data-gameCount", "00");
+      this.currentPhase = "onPhase"
     },
     setStartingPhase: function() {
       var colorButtons = simonGame.getElementsByClassName("gameButton");
@@ -113,6 +116,7 @@ Simon.Controller = function(node) {
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
       this.simonGame.getElementsByClassName("gameCount")[0].setAttribute("data-gameCount", "00");
+      this.currentPhase = "startingPhase";
     },
     setDisplayPhase: function() {
       var colorButtons = simonGame.getElementsByClassName("gameButton");
@@ -126,6 +130,7 @@ Simon.Controller = function(node) {
       this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
+      this.currentPhase = "displayPhase";
     },
     setGuessPhase: function() {
       var colorButtons = simonGame.getElementsByClassName("gameButton");
@@ -139,6 +144,7 @@ Simon.Controller = function(node) {
       this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
+      this.currentPhase = "guessPhase";
     },
     setWrongPhase: function() {
       var colorButtons = simonGame.getElementsByClassName("gameButton");
@@ -152,6 +158,7 @@ Simon.Controller = function(node) {
       this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
+      this.currentPhase = "wrongPhase";
     },
     setWinPhase: function() {
       var colorButtons = simonGame.getElementsByClassName("gameButton");
@@ -165,6 +172,7 @@ Simon.Controller = function(node) {
       this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
+      this.currentPhase = "winPhase";
     },
     setLosePhase: function() {
       var colorButtons = simonGame.getElementsByClassName("gameButton");
@@ -178,6 +186,7 @@ Simon.Controller = function(node) {
       this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
+      this.currentPhase = "losePhase";
     },
   };
 };
