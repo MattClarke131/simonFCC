@@ -199,6 +199,20 @@ Simon.Controller = function(node) {
         }
       }
     },
+    bindStartButton: function() {
+      var controller = this;
+      simonGame.getElementsByClassName("startButton")[0].onclick = function() {
+        if(simonGame.getElementsByClassName("startButton")[0].getAttribute("data-activity") == "inactive") {
+          return;
+        } else {
+          controller.setStartingPhase();
+          controller.playIntro();
+          setTimeout(function() {
+            controller.setDisplayPhase();
+          }, 4000)
+        }
+      }
+    },
   };
 };
 
