@@ -5,6 +5,8 @@ Simon.Controller = function(node) {
     simonGame: node,
     model: Simon.Model(),
     currentPhase: "",
+
+    // DISPLAY FUNCTIONS
     _changeButtonLight: function(color, isLit) {
       /// Accepts strings
       var controller = this;
@@ -44,8 +46,6 @@ Simon.Controller = function(node) {
       simonGame.getElementsByClassName("strictDisplay")
         .setAttribute("data-status", "strictOff");
     },
-
-
     flashButton: function(color, delay, length) {
       /// Accepts a string and a number in milleseconds
       var controller = this;
@@ -78,7 +78,7 @@ Simon.Controller = function(node) {
       for(var button in colorButtons) {
         if(colorButtons.hasOwnProperty(button)) {
           this.setElementActivity(colorButtons[button], "inactive");
-        }
+        };
       };
       this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "inactive");
       this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "inactive");
@@ -93,7 +93,7 @@ Simon.Controller = function(node) {
       for(var button in colorButtons) {
         if(colorButtons.hasOwnProperty(button)) {
           this.setElementActivity(colorButtons[button], "inactive");
-        }
+        };
       };
       this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "active");
       this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "active");
