@@ -114,6 +114,18 @@ Simon.Controller = function(node) {
         this.simonGame.getElementsByClassName("strictButton")[0], "inactive"
       );
     },
+    setGameButtonsActive: function(color) {
+      var gameButtons = this.simonGame.getElementsByClassName("gameButton");
+      for(var button in gameButtons) {
+        this._setElementActivity(gameButtons[button], "active");
+      };
+    },
+    setGameButtonsInactive: function(color) {
+      var gameButtons = this.simonGame.getElementsByClassName("gameButton");
+      for(var button in gameButtons) {
+        this._setElementActivity(gameButtons[button], "inactive");
+      };
+    },
 
     // Set Phase Functions
 
