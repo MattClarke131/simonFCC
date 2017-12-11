@@ -23,6 +23,13 @@ Simon.Controller = function(node) {
         }
       };
     },
+    setButtonLightOn: function(color) {
+        this._changeButtonLight(color, true);
+    },
+    setButtonLightOff: function(color) {
+        this._changeButtonLight(color, false);
+    },
+
     _changeDisplayLight: function(element, isLit) {
       if(isLit) {
         element.classList.remove("lightOff");
@@ -32,12 +39,6 @@ Simon.Controller = function(node) {
         element.classList.add("lightOff");
       }
     },
-    setButtonLightOn: function(color) {
-        this._changeButtonLight(color, true);
-    },
-    setButtonLightOff: function(color) {
-        this._changeButtonLight(color, false);
-    },
     setStrictDisplayOn: function() {
       simonGame.getElementsByClassName("strictDisplay")
         .setAttribute("data-status", "strictOn");
@@ -46,6 +47,8 @@ Simon.Controller = function(node) {
       simonGame.getElementsByClassName("strictDisplay")
         .setAttribute("data-status", "strictOff");
     },
+
+    // Display Timing Functions
     flashButton: function(color, delay, length) {
       /// Accepts a string and a number in milleseconds
       var controller = this;
@@ -69,10 +72,13 @@ Simon.Controller = function(node) {
       };
     },
 
-    // SET PHASE FUNCTIONS
+    // Set data-activity Functions
     setElementActivity: function(element, activity) {
       element.setAttribute("data-activity", activity);
     },
+
+    // Set Phase Functions
+
     setInitPhase: function() {
       var colorButtons = simonGame.getElementsByClassName("gameButton");
       for(var button in colorButtons) {
