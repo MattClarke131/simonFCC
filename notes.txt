@@ -1,0 +1,15 @@
+
+
+Plan:
+1. create setPhase FUNCTIONS
+  1.1 make all buttons have inactive/active status
+  1.2 create onclick functions for all buttons that check data-activity
+
+
+todo:
+fix positioning of gameMenu contents
+
+
+Questions:
+1. When I call setInitPhase, I get a type error, but the function works as expected.
+2. Which functions should have an underscore, and which should not?
