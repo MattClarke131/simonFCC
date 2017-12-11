@@ -2,13 +2,13 @@
   text-align: center;
   background-color: #CCC;
 }
-.simonGame .onOffDisplay.lightOn {
+.simonGame .powerDisplay.lightOn {
   background-color: #FFF;
   height: 1em;
   width: 1em;
   border-radius: 1em;
 }
-.simonGame .onOffDisplay.lightOff {
+.simonGame .powerDisplay.lightOff {
   background-color: #000;
   height: 1em;
   width: 1em;

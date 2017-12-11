@@ -117,7 +117,7 @@ Simon.Controller = function(node) {
       };
       this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "inactive");
       this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "inactive");
-      this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], false);
+      this._changeDisplayLight(this.simonGame.getElementsByClassName("powerDisplay")[0], false);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], false);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], false);
       this.simonGame.getElementsByClassName("gameCount")[0].setAttribute("data-gameCount", "00");
@@ -132,7 +132,7 @@ Simon.Controller = function(node) {
       };
       this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "active");
       this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "active");
-      this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
+      this._changeDisplayLight(this.simonGame.getElementsByClassName("powerDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], false);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
       this.simonGame.getElementsByClassName("gameCount")[0].setAttribute("data-gameCount", "00");
@@ -147,7 +147,7 @@ Simon.Controller = function(node) {
       };
       this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "active");
       this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "active");
-      this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
+      this._changeDisplayLight(this.simonGame.getElementsByClassName("powerDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
       this.simonGame.getElementsByClassName("gameCount")[0].setAttribute("data-gameCount", "00");
@@ -162,7 +162,7 @@ Simon.Controller = function(node) {
       };
       this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "active");
       this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "active");
-      this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
+      this._changeDisplayLight(this.simonGame.getElementsByClassName("powerDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
       this.currentPhase = "displayPhase";
@@ -176,7 +176,7 @@ Simon.Controller = function(node) {
       };
       this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "active");
       this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "active");
-      this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
+      this._changeDisplayLight(this.simonGame.getElementsByClassName("powerDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
       this.currentPhase = "guessPhase";
@@ -190,7 +190,7 @@ Simon.Controller = function(node) {
       };
       this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "active");
       this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "active");
-      this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
+      this._changeDisplayLight(this.simonGame.getElementsByClassName("powerDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
       this.currentPhase = "wrongPhase";
@@ -204,7 +204,7 @@ Simon.Controller = function(node) {
       };
       this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "active");
       this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "active");
-      this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
+      this._changeDisplayLight(this.simonGame.getElementsByClassName("powerDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
       this.currentPhase = "winPhase";
@@ -218,15 +218,15 @@ Simon.Controller = function(node) {
       };
       this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "active");
       this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "active");
-      this._changeDisplayLight(this.simonGame.getElementsByClassName("onOffDisplay")[0], true);
+      this._changeDisplayLight(this.simonGame.getElementsByClassName("powerDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
       this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
       this.currentPhase = "losePhase";
     },
     // Button binds
-    bindOnOffButton: function() {
+    bindpowerButton: function() {
       var controller = this;
-      simonGame.getElementsByClassName("onOffButton").onclick = function() {
+      simonGame.getElementsByClassName("powerButton").onclick = function() {
         if(controller.currentPhase == "initPhase") {
           controller.setOnPhase();
         } else {
