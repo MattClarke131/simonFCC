@@ -40,6 +40,16 @@ Simon.Controller = function(node) {
         element.classList.add("lightOff");
       }
     },
+    setPowerDisplayOn: function() {
+      this._changeDisplayLight(
+        document.getElementsByClassName("powerDisplay")[0], true);
+      );
+    },
+    setPowerDisplayOff: function() {
+      this._changeDisplayLight(
+        document.getElementsByClassName("powerDisplay")[0], false);
+      );
+    },
     setStrictDisplayOn: function() {
       simonGame.getElementsByClassName("strictDisplay")
         .setAttribute("data-status", "strictOn");
