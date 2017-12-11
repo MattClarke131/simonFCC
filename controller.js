@@ -73,9 +73,27 @@ Simon.Controller = function(node) {
     },
 
     // Set data-activity Functions
-    setElementActivity: function(element, activity) {
+    _setElementActivity: function(element, activity) {
       element.setAttribute("data-activity", activity);
     },
+
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //QUESTION: Which is better?
+    //          A: Two functions: one for on, andone for off.
+    //          B: One function with a true/false argument
+
+    setStartButtonActive: function() {
+      this._setElementActivity(
+        this.simonGame.getElementsByClassName("startButton")[0], "active"
+      );
+    },
+    setStartButtonInactive: function() {
+      this._setElementActivity(
+        this.simonGame.getElementsByClassName("startButton")[0], "inactive"
+      );
+    },
+
+    
 
     // Set Phase Functions
 
