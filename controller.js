@@ -8,14 +8,14 @@ Simon.Controller = function(node) {
 
 
     // DISPLAY FUNCTIONS
-    _changeButtonLight: function(color, isLit) {
+    _changeButtonLight: function(color, newLightStatus) {
       /// Accepts strings
       var controller = this;
       if(controller.model.getGameColors().indexOf(color) == -1) {
         console.error("invalid color: " + color);
       } else {
         var buttonNode = controller.simonGame.querySelector('[data-color='+color+']')
-        if (isLit) {
+        if (newLightStatus) {
           buttonNode.classList.remove("lightOff")
           buttonNode.classList.add("lightOn");
         } else {
@@ -31,8 +31,8 @@ Simon.Controller = function(node) {
         this._changeButtonLight(color, false);
     },
 
-    _changeDisplayLight: function(element, isLit) {
-      if(isLit) {
+    _changeDisplayLight: function(element, newLightStatus) {
+      if(newLightStatus) {
         element.classList.remove("lightOff");
         element.classList.add("lightOn");
       } else {
