@@ -6,6 +6,7 @@ Simon.Controller = function(node) {
     model: Simon.Model(),
     currentPhase: "",
 
+
     // DISPLAY FUNCTIONS
     _changeButtonLight: function(color, isLit) {
       /// Accepts strings
@@ -48,6 +49,7 @@ Simon.Controller = function(node) {
         .setAttribute("data-status", "strictOff");
     },
 
+
     // Display Timing Functions
     flashButton: function(color, delay, length) {
       /// Accepts a string and a number in milleseconds
@@ -72,6 +74,7 @@ Simon.Controller = function(node) {
       };
     },
 
+
     // Set data-activity Functions
     _setElementActivity: function(element, activity) {
       element.setAttribute("data-activity", activity);
@@ -92,8 +95,16 @@ Simon.Controller = function(node) {
         this.simonGame.getElementsByClassName("startButton")[0], "inactive"
       );
     },
-
-    
+    setStrictButtonActive: function() {
+      this._setElementActivity(
+        this.simonGame.getElementsByClassName("strictButton")[0], "active"
+      );
+    },
+    setStrictButtonInactive: function() {
+      this._setElementActivity(
+        this.simonGame.getElementsByClassName("strictButton")[0], "inactive"
+      );
+    },
 
     // Set Phase Functions
 
