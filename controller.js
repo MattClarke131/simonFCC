@@ -18,14 +18,12 @@ Simon.Controller = function(node) {
       }
     },
     setPowerDisplayOn: function() {
-      this._changeDisplayLight(
-        document.getElementsByClassName("powerDisplay")[0], true);
-      );
+      var element = this.simonGame.getElementsByClassName("powerDisplay")[0];
+      this._changeDisplayLight(element, true);
     },
     setPowerDisplayOff: function() {
-      this._changeDisplayLight(
-        document.getElementsByClassName("powerDisplay")[0], false);
-      );
+      var element = this.simonGame.getElementsByClassName("powerDisplay")[0];
+      this._changeDisplayLight(element, false);
     },
     setStrictDisplayOn: function() {
       simonGame.getElementsByClassName("strictDisplay")
