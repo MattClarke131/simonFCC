@@ -53,24 +53,6 @@ Simon.Controller = function(node) {
       element.setAttribute("data-gameCount", 0);
       element.innerHTML = "--";
     },
-    /*
-    _changeButtonLight: function(color, newLightStatus) {
-      /// Accepts strings
-      var controller = this;
-      if(controller.model.getGameColors().indexOf(color) == -1) {
-        console.error("invalid color: " + color);
-      } else {
-        var buttonNode = controller.simonGame.querySelector('[data-color='+color+']');
-        if(newLightStatus) {
-          buttonNode.classList.remove("lightOff")
-          buttonNode.classList.add("lightOn");
-        } else {
-          buttonNode.classList.remove("lightOn")
-          buttonNode.classList.add("lightOff");
-        }
-      };
-    },
-    */
     setGameButtonLightOn: function(color) {
         this._changeButtonLight(color, true);
     },
