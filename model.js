@@ -35,7 +35,7 @@ Simon.Model = function() {
     },
     resetRound: function() {
       currentElement = 0;
-
+    },
     incrementCurrentElement: function() {
       currentElement++;
     },
