@@ -5,6 +5,7 @@ Simon.Controller = function(node) {
     simonGame: node,
     model: Simon.Model(),
     currentPhase: "",
+    introLength: 3000,
 
 
     // DISPLAY FUNCTIONS
@@ -87,10 +88,11 @@ Simon.Controller = function(node) {
     playIntro: function() {
       var controller = this;
       var colors = controller.model.getGameColors();
+      var introTick = this.introLength/6;
       for(color in colors) {
-        controller.flashButton(colors[color],0,500);
-        controller.flashButton(colors[color],1000,500);
-        controller.flashButton(colors[color],2000,500);
+        controller.flashButton(colors[color],0*introTick,1*introTick);
+        controller.flashButton(colors[color],2*introTick,3*introTick);
+        controller.flashButton(colors[color],4*introTick,5*introTick);
       };
     },
     displaySequence: function(sequence) {
