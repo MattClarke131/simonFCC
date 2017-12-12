@@ -17,7 +17,7 @@ Simon.Controller = function(node) {
       } else {
         element.classList.remove("lightOn");
         element.classList.add("lightOff");
-      }
+      };
     },
     setPowerDisplayOn: function() {
       var element = this.simonGame.getElementsByClassName("powerDisplay")[0];
@@ -281,6 +281,16 @@ Simon.Controller = function(node) {
         }
       }
     },
+
+    updateHTML: function() {
+      var currentRound = this.model.getSequence().length;
+      this.setGameCountAmount(currentRound);
+      if(this.model.getStrictStatus) {
+        this.setStrictDisplayOn();
+      } else {
+        this.setStrictDisplayOff();
+      }
+    }
   };
 };
 
