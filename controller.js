@@ -26,12 +26,13 @@ Simon.Controller = function(node) {
       this._changeDisplayLight(element, false);
     },
     setStrictDisplayOn: function() {
-      simonGame.getElementsByClassName("strictDisplay")
-        .setAttribute("data-status", "strictOn");
+      var element = this.simonGame.getElementsByClassName("strictDisplay")[0];
+      this._changeDisplayLight(element, true);
     },
     setStrictDisplayOff: function() {
-      simonGame.getElementsByClassName("strictDisplay")
-        .setAttribute("data-status", "strictOff");
+      var element = this.simonGame.getElementsByClassName("strictDisplay")[0];
+      this._changeDisplayLight(element, false);
+    },
     },
     /*
     _changeButtonLight: function(color, newLightStatus) {
