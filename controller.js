@@ -243,7 +243,7 @@ Simon.Controller = function(node) {
 
 
     // BUTTON BINDS
-    bindpowerButton: function() {
+    bindPowerButton: function() {
       var controller = this;
       simonGame.getElementsByClassName("powerButton").onclick = function() {
         if(controller.currentPhase == "initPhase") {
