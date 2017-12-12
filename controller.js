@@ -33,6 +33,14 @@ Simon.Controller = function(node) {
       var element = this.simonGame.getElementsByClassName("strictDisplay")[0];
       this._changeDisplayLight(element, false);
     },
+    setGameCountDisplayOn: function() {
+      var element = this.simonGame.getElementsByClassName("gameCount")[0];
+      this._changeDisplayLight(element, true);
+    },
+    setGameCountDisplayOff: function() {
+      var element = this.simonGame.getElementsByClassName("gameCount")[0];
+      this._changeDisplayLight(element, false);
+    },
     },
     /*
     _changeButtonLight: function(color, newLightStatus) {
