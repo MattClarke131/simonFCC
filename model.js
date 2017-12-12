@@ -11,6 +11,7 @@ Simon.Model = function() {
 
   //public
   var simon = {
+    //Get Functions
     getGameColors: function() {
       return gameColors;
     },
@@ -20,22 +21,26 @@ Simon.Model = function() {
     getStrictStatus: function() {
       return strict;
     },
+
+    //Set Functions
     toggleStrict: function() {
       strict = !strict;
     },
+
+    //Game State Functions
     resetGame: function() {
       sequence = [];
       currentElement = 0;
       strict = false;
     },
+    resetRound: function() {
+      currentElement = 0;
+
     incrementCurrentElement: function() {
       currentElement++;
     },
     incrementSequence: function() {
       sequence.push(Math.floor(Math.random() * gameColors.length));
-    },
-    resetRound: function() {
-      currentElement = 0;
     },
   };
   return simon;
