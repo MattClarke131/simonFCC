@@ -6,6 +6,7 @@ Simon.Controller = function(node) {
     model: Simon.Model(),
     currentPhase: "",
     introLength: 3000,
+    colorDisplayLength: 1000,
 
 
     // DISPLAY FUNCTIONS
@@ -98,8 +99,9 @@ Simon.Controller = function(node) {
     displaySequence: function(sequence) {
       /// Accepts an array of strings
       var controller = this;
+      var displayTick = this.colorDisplayLength;
       for(var el in sequence) {
-        controller.flashButton(sequence[el], 1000*el, 500);
+        controller.flashButton(sequence[el], displayTick*el, displayTick/2);
       };
     },
 
