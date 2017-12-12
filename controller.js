@@ -51,10 +51,10 @@ Simon.Controller = function(node) {
       };
     },
     */
-    setButtonLightOn: function(color) {
+    setGameButtonLightOn: function(color) {
         this._changeButtonLight(color, true);
     },
-    setButtonLightOff: function(color) {
+    setGameButtonLightOff: function(color) {
         this._changeButtonLight(color, false);
     },
 
@@ -63,8 +63,8 @@ Simon.Controller = function(node) {
     flashButton: function(color, delay, length) {
       /// Accepts a string and a number in milleseconds
       var controller = this;
-      setTimeout(function() {controller.setButtonLightOn(color)},delay);
-      setTimeout(function() {controller.setButtonLightOff(color)},delay+length);
+      setTimeout(function() {controller.setGameButtonLightOn(color)},delay);
+      setTimeout(function() {controller.setGameButtonLightOff(color)},delay+length);
     },
     playIntro: function() {
       var controller = this;
