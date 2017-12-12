@@ -278,6 +278,13 @@ Simon.Controller = function(node) {
         };
       };
     },
+    // INITIALIZE
+    initialize: function() {
+      this.setInitPhase();
+      this.bindPowerButton();
+      this.bindStartButton();
+      this.bindStrictButton();
+    },
   };
 };
 
