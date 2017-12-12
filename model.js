@@ -28,39 +28,14 @@ Simon.Model = function() {
       currentElement = 0;
       strict = false;
     },
-    makeGuess: function(guess) {
-      if (sequence[currentElement] === guess && currentElement === roundsToWin - 1) {
-        return "winGame";
-      } else if (sequence[currentElement] === guess && currentElement === sequence.length - 1) {
-        return "winRound";
-      } else if (sequence[currentElement] === guess && currentElement < sequence.length - 1) {
-        return "winGuess";
-      } else if (sequence[currentElement] !== guess) {
-         if (strict) {
-           return "loseGame";
-         } else {
-           return "loseRound";
-         };
-      }
-    },
     incrementCurrentElement: function() {
       currentElement++;
-    },
-    beginNextRound: function() {
-      this.incrementSequence();
-      currentElement = 0;
     },
     incrementSequence: function() {
       sequence.push(Math.floor(Math.random() * gameColors.length));
     },
     resetRound: function() {
       currentElement = 0;
-    },
-    winGame: function() {
-      console.log("YOU WIN");
-    },
-    loseGame: function() {
-      console.log("YOU LOSE");
     },
   };
   return simon;
