@@ -17,7 +17,7 @@ Simon.Controller = function(node) {
       } else {
         element.classList.remove("lightOn");
         element.classList.add("lightOff");
-      }
+      };
     },
     setPowerDisplayOn: function() {
       var element = this.simonGame.getElementsByClassName("powerDisplay")[0];
@@ -53,33 +53,24 @@ Simon.Controller = function(node) {
       element.setAttribute("data-gameCount", 0);
       element.innerHTML = "--";
     },
-    /*
-    _changeButtonLight: function(color, newLightStatus) {
-      /// Accepts strings
-      var controller = this;
-      if(controller.model.getGameColors().indexOf(color) == -1) {
-        console.error("invalid color: " + color);
-      } else {
-        var buttonNode = controller.simonGame.querySelector('[data-color='+color+']');
-        if(newLightStatus) {
-          buttonNode.classList.remove("lightOff")
-          buttonNode.classList.add("lightOn");
-        } else {
-          buttonNode.classList.remove("lightOn")
-          buttonNode.classList.add("lightOff");
-        }
-      };
-    },
-    */
     setGameButtonLightOn: function(color) {
         this._changeButtonLight(color, true);
     },
     setGameButtonLightOff: function(color) {
         this._changeButtonLight(color, false);
     },
+    updateHTML: function() {
+      var currentRound = this.model.getSequence().length;
+      this.setGameCountAmount(currentRound);
+      if(this.model.getStrictStatus && this.currentPhase !== "initPhase") {
+        this.setStrictDisplayOn();
+      } else {
+        this.setStrictDisplayOff();
+      };
+    },
 
 
-    // Display Timing Functions
+    // DISPLAY TIMING FUNCTIONS
     flashButton: function(color, delay, length) {
       /// Accepts a string and a number in milleseconds
       var controller = this;
@@ -106,7 +97,7 @@ Simon.Controller = function(node) {
     },
 
 
-    // Set data-activity Functions
+    // SET DATA-ACTIVITY FUNCTIONS
     _setElementActivity: function(element, activity) {
       element.setAttribute("data-activity", activity);
     },
@@ -149,8 +140,8 @@ Simon.Controller = function(node) {
       };
     },
 
-    // Set Phase Functions
 
+    // SET PHASE FUNCTIONS
     setInitPhase: function() {
       this.currentPhase = "initPhase";
       //Displays
@@ -162,6 +153,8 @@ Simon.Controller = function(node) {
       this.setStartButtonInactive();
       this.setStrictButtonInactive();
       this.setGameButtonsInactive();
+      //Model
+      this.model.resetGame();
     },
     setOnPhase: function() {
       this.currentPhase = "onPhase";
@@ -174,6 +167,8 @@ Simon.Controller = function(node) {
       this.setStartButtonActive();
       this.setStrictButtonActive();
       this.setGameButtonsInactive();
+      //Model
+      this.model.resetGame();
     },
     setStartingPhase: function() {
       this.currentPhase = "startingPhase";
@@ -245,16 +240,18 @@ Simon.Controller = function(node) {
       this.setStrictButtonActive();
       this.setGameButtonsInactive();
     },
-    // Button binds
-    bindpowerButton: function() {
+
+
+    // BUTTON BINDS
+    bindPowerButton: function() {
       var controller = this;
       simonGame.getElementsByClassName("powerButton").onclick = function() {
         if(controller.currentPhase == "initPhase") {
           controller.setOnPhase();
         } else {
           controller.setInitPhase();
-        }
-      }
+        };
+      };
     },
     bindStartButton: function() {
       var controller = this;
@@ -267,8 +264,8 @@ Simon.Controller = function(node) {
           setTimeout(function() {
             controller.setDisplayPhase();
           }, 4000)
-        }
-      }
+        };
+      };
     },
     bindStrictButton: function() {
       var controller = this;
@@ -277,9 +274,9 @@ Simon.Controller = function(node) {
           return;
         } else {
           controller.model.toggleStrict();
-          controller.simonGame._changeDisplayLight(simonGame.getElementsByClassName("strictButton")[0],controller.model.getStrictStatus());
-        }
-      }
+          controller.updateHTML();
+        };
+      };
     },
   };
 };
