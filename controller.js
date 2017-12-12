@@ -216,18 +216,14 @@ Simon.Controller = function(node) {
       this.setGameButtonsActive();
     },
     setWrongPhase: function() {
-      var colorButtons = simonGame.getElementsByClassName("gameButton");
-      for(var button in colorButtons) {
-        if(colorButtons.hasOwnProperty(button)) {
-          this.setElementActivity(colorButtons[button], "inactive");
-        };
-      };
-      this.setElementActivity(this.simonGame.getElementsByClassName("startButton")[0], "active");
-      this.setElementActivity(this.simonGame.getElementsByClassName("strictButton")[0], "active");
-      this._changeDisplayLight(this.simonGame.getElementsByClassName("powerDisplay")[0], true);
-      this._changeDisplayLight(this.simonGame.getElementsByClassName("strictDisplay")[0], true);
-      this._changeDisplayLight(this.simonGame.getElementsByClassName("gameCount")[0], true);
       this.currentPhase = "wrongPhase";
+      //Displays
+      this.setPowerDisplayOn();
+      this.setGameCountDisplayOn();
+      //Buttons
+      this.setStartButtonActive();
+      this.setStrictButtonActive();
+      this.setGameButtonsInactive();
     },
     setWinPhase: function() {
       var colorButtons = simonGame.getElementsByClassName("gameButton");
