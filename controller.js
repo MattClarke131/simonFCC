@@ -281,7 +281,7 @@ Simon.Controller = function(node) {
           return;
         } else {
           controller.model.toggleStrict();
-          controller.simonGame._changeDisplayLight(simonGame.getElementsByClassName("strictButton")[0],controller.model.getStrictStatus());
+          controller.updateHTML();
         }
       }
     },
