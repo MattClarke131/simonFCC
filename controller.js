@@ -41,6 +41,15 @@ Simon.Controller = function(node) {
       var element = this.simonGame.getElementsByClassName("gameCount")[0];
       this._changeDisplayLight(element, false);
     },
+    setGameCountAmount: function(value) {
+      var element = this.simonGame.getElementsByClassName("gameCount")[0];
+      element.setAttribute("data-gameCount", value);
+      element.innerHTML = value;
+    },
+    resetGameCount: function() {
+      var element = this.simonGame.getElementsByClassName("gameCount")[0];
+      element.setAttribute("data-gameCount", 0);
+      element.innerHTML = "--";
     },
     /*
     _changeButtonLight: function(color, newLightStatus) {
