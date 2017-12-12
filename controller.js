@@ -59,9 +59,18 @@ Simon.Controller = function(node) {
     setGameButtonLightOff: function(color) {
         this._changeButtonLight(color, false);
     },
+    updateHTML: function() {
+      var currentRound = this.model.getSequence().length;
+      this.setGameCountAmount(currentRound);
+      if(this.model.getStrictStatus && this.currentPhase !== "initPhase") {
+        this.setStrictDisplayOn();
+      } else {
+        this.setStrictDisplayOff();
+      };
+    },
 
 
-    // Display Timing Functions
+    // DISPLAY TIMING FUNCTIONS
     flashButton: function(color, delay, length) {
       /// Accepts a string and a number in milleseconds
       var controller = this;
@@ -88,7 +97,7 @@ Simon.Controller = function(node) {
     },
 
 
-    // Set data-activity Functions
+    // SET DATA-ACTIVITY FUNCTIONS
     _setElementActivity: function(element, activity) {
       element.setAttribute("data-activity", activity);
     },
@@ -131,8 +140,8 @@ Simon.Controller = function(node) {
       };
     },
 
-    // Set Phase Functions
 
+    // SET PHASE FUNCTIONS
     setInitPhase: function() {
       this.currentPhase = "initPhase";
       //Displays
@@ -231,7 +240,9 @@ Simon.Controller = function(node) {
       this.setStrictButtonActive();
       this.setGameButtonsInactive();
     },
-    // Button binds
+
+
+    // BUTTON BINDS
     bindpowerButton: function() {
       var controller = this;
       simonGame.getElementsByClassName("powerButton").onclick = function() {
@@ -239,8 +250,8 @@ Simon.Controller = function(node) {
           controller.setOnPhase();
         } else {
           controller.setInitPhase();
-        }
-      }
+        };
+      };
     },
     bindStartButton: function() {
       var controller = this;
@@ -253,8 +264,8 @@ Simon.Controller = function(node) {
           setTimeout(function() {
             controller.setDisplayPhase();
           }, 4000)
-        }
-      }
+        };
+      };
     },
     bindStrictButton: function() {
       var controller = this;
@@ -264,17 +275,7 @@ Simon.Controller = function(node) {
         } else {
           controller.model.toggleStrict();
           controller.updateHTML();
-        }
-      }
-    },
-
-    updateHTML: function() {
-      var currentRound = this.model.getSequence().length;
-      this.setGameCountAmount(currentRound);
-      if(this.model.getStrictStatus && this.currentPhase !== "initPhase") {
-        this.setStrictDisplayOn();
-      } else {
-        this.setStrictDisplayOff();
+        };
       };
     },
   };
