@@ -289,12 +289,12 @@ Simon.Controller = function(node) {
     updateHTML: function() {
       var currentRound = this.model.getSequence().length;
       this.setGameCountAmount(currentRound);
-      if(this.model.getStrictStatus) {
+      if(this.model.getStrictStatus && this.currentPhase !== "initPhase") {
         this.setStrictDisplayOn();
       } else {
         this.setStrictDisplayOff();
-      }
-    }
+      };
+    },
   };
 };
 
