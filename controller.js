@@ -184,6 +184,8 @@ Simon.Controller = function(node) {
       this.setStartButtonActive();
       this.setStrictButtonActive();
       this.setGameButtonsInactive();
+      //Model
+      this.model.incrementSequence();
       //Transition
       this.playIntro();
     },
