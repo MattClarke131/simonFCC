@@ -37,7 +37,6 @@ Simon.Model = function() {
     resetGame: function() {
       sequence = [];
       currentElement = 0;
-      strict = false;
     },
     resetRound: function() {
       currentElement = 0;
