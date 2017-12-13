@@ -262,8 +262,8 @@ Simon.Controller = function(node) {
     },
     bindStartButton: function() {
       var controller = this;
-      simonGame.getElementsByClassName("startButton")[0].onclick = function() {
-        if(simonGame.getElementsByClassName("startButton")[0].getAttribute("data-activity") == "inactive") {
+      controller.simonGame.getElementsByClassName("startButton")[0].onclick = function() {
+        if(controller.simonGame.getElementsByClassName("startButton")[0].getAttribute("data-activity") == "inactive") {
           return;
         } else {
           controller.setStartingPhase();
