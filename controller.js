@@ -118,17 +118,11 @@ Simon.Controller = function(node) {
       this._setElementActivity(
         this.simonGame.getElementsByClassName("strictButton")[0], "active"
       );
-      if(!this.model.getStrictStatus()) {
-        this.model.toggleStrict();
-      };
     },
     setStrictButtonInactive: function() {
       this._setElementActivity(
         this.simonGame.getElementsByClassName("strictButton")[0], "inactive"
       );
-      if(this.model.getStrictStatus()){
-        this.model.toggleStrict();
-      }
     },
     setGameButtonsActive: function(color) {
       var gameButtons = this.simonGame.getElementsByClassName("gameButton");
