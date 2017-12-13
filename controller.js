@@ -66,16 +66,6 @@ Simon.Controller = function(node) {
     setGameButtonLightOff: function(color) {
         this._changeButtonLight(color, false);
     },
-    updateHTML: function() {
-      var currentRound = this.model.getSequence().length;
-      this.setGameCountAmount(currentRound);
-      if(this.model.getStrictStatus && this.currentPhase !== "initPhase") {
-        this.setStrictDisplayOn();
-      } else {
-        this.setStrictDisplayOff();
-      };
-    },
-
 
     // DISPLAY TIMING FUNCTIONS
     flashButton: function(color, delay, length) {
