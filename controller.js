@@ -198,6 +198,8 @@ Simon.Controller = function(node) {
       this.setStartButtonActive();
       this.setStrictButtonActive();
       this.setGameButtonsInactive();
+      //Model
+      this.model.resetRound();
       //DisplaySequence
       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       //QUESTION: Which is better?
