@@ -35,6 +35,13 @@ Simon.Controller = function(node) {
       var element = this.simonGame.getElementsByClassName("strictDisplay")[0];
       this._changeDisplayLight(element, false);
     },
+    updateStrictDisplay: function() {
+      if(this.model.getStrictStatus()) {
+        controller.setStrictDisplayOn();
+      } else {
+        controller.setStrictDisplayOff();
+      }
+    },
     setGameCountDisplayOn: function() {
       var element = this.simonGame.getElementsByClassName("gameCount")[0];
       this._changeDisplayLight(element, true);
@@ -121,11 +128,17 @@ Simon.Controller = function(node) {
       this._setElementActivity(
         this.simonGame.getElementsByClassName("strictButton")[0], "active"
       );
+      if(!this.model.getStrictStatus()) {
+        this.model.toggleStrict();
+      };
     },
     setStrictButtonInactive: function() {
       this._setElementActivity(
         this.simonGame.getElementsByClassName("strictButton")[0], "inactive"
       );
+      if(this.model.getStrictStatus()){
+        this.model.toggleStrict();
+      }
     },
     setGameButtonsActive: function(color) {
       var gameButtons = this.simonGame.getElementsByClassName("gameButton");
@@ -164,7 +177,6 @@ Simon.Controller = function(node) {
       this.currentPhase = "onPhase";
       //Displays
       this.setPowerDisplayOn();
-      this.setStrictDisplayOff();
       this.resetGameCount();
       this.setGameCountDisplayOn();
       //Buttons
@@ -276,12 +288,12 @@ Simon.Controller = function(node) {
     },
     bindStrictButton: function() {
       var controller = this;
-      simonGame.getElementsByClassName("strictButton")[0].onclick = function() {
-        if(simonGame.getElementsByClassName("strictButton")[0].getAttribute("data-activity") == "inactive") {
+      controller.simonGame.getElementsByClassName("strictButton")[0].onclick = function() {
+        if(controller.simonGame.getElementsByClassName("strictButton")[0].getAttribute("data-activity") == "inactive") {
           return;
         } else {
           controller.model.toggleStrict();
-          controller.updateHTML();
+          controller.updateStrictDisplay();
         };
       };
     },
