@@ -249,11 +249,10 @@ Simon.Controller = function(node) {
       this.setGameButtonsInactive();
     },
 
-
     // BUTTON BINDS
     bindPowerButton: function() {
       var controller = this;
-      simonGame.getElementsByClassName("powerButton").onclick = function() {
+      controller.simonGame.getElementsByClassName("powerButton")[0].onclick = function() {
         if(controller.currentPhase == "initPhase") {
           controller.setOnPhase();
         } else {
