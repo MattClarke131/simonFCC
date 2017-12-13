@@ -21,6 +21,12 @@ Simon.Model = function() {
     getStrictStatus: function() {
       return strict;
     },
+    getCurrentElement: function() {
+      return currentElement;
+    },
+    getRoundsToWin: function() {
+      return roundsToWin;
+    },
 
     //Set Functions
     toggleStrict: function() {
