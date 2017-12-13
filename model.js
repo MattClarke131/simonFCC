@@ -34,6 +34,11 @@ Simon.Model = function() {
     },
 
     //Game State Functions
+    initGame: function() {
+      sequence = [];
+      currentElement = 0;
+      strict = false;
+    },
     resetGame: function() {
       sequence = [];
       currentElement = 0;

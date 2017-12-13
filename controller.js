@@ -155,7 +155,7 @@ Simon.Controller = function(node) {
       this.setStrictButtonInactive();
       this.setGameButtonsInactive();
       //Model
-      this.model.resetGame();
+      this.model.initGame();
     },
     setOnPhase: function() {
       this.currentPhase = "onPhase";
