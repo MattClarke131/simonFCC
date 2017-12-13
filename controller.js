@@ -282,6 +282,44 @@ Simon.Controller = function(node) {
         };
       };
     },
+    bindGameButtons: function() {
+      //Game buttons should be active ONLY during the guessPhase
+      var gameButtons = simonGame.getElementsByClassName("gameButton");
+      for(var button in gameButtons) {
+        if(gameButtons.hasOwnProperty(button)) {
+          controller._bindIndividualGameButton(button);
+        };
+      };
+    },
+    _bindIndividualGameButton: function(button) {
+      var controller = this;
+      button.onclick = function() {
+        if(this.getAttribute("data-activity") === "active") {
+          var buttonColor = this.getAttribute("data-color");
+          var correctGuess = controller.model.getSequence()[currentElement];
+          var seqLengt = controller.model.getSequence().length
+          var currentEl = controller.model.getCurrentElement();
+          var maxSeq = controller.model.getRoundsToWin();
+          var strict = controller.model.getStrictStatus();
+          if (buttonColor !== correctGuess && strict) {
+            controller.setLosePhase();
+            controller.setOnPhase();
+          } else if(buttonColor !== correctGuess && !strict) {
+            controller.setDisplayPhase();
+          } else if(buttonColor === correctGuess && currentEl === maxSeq -1) {
+            controller.setwinPhase();
+          } else if(buttonColor === correctGuess && currentEl < seqLength -1) {
+            controller.model.incrementCurrentElement();
+          } else if(buttonColor === correctGuess &&
+            currentEl === seqLength -1 &&
+            currentEl !== maxSeq) {
+              controller.model.incrementSequence();
+              controller.setDisplayPhase();
+          };
+        };
+      };
+    },
+
     // INITIALIZE
     initialize: function() {
       this.setInitPhase();
