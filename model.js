@@ -50,7 +50,7 @@ Simon.Model = function() {
       currentElement++;
     },
     incrementSequence: function() {
-      sequence.push(Math.floor(Math.random() * gameColors.length));
+      sequence.push(gameColors[Math.floor(Math.random() * gameColors.length)]);
     },
   };
   return simon;
