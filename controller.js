@@ -85,13 +85,12 @@ Simon.Controller = function(node) {
       setTimeout(function() {controller.setGameButtonLightOff(color)},delay+length);
     },
     playIntro: function() {
-      var controller = this;
-      var colors = controller.model.getGameColors();
+      var colors = this.model.getGameColors();
       var introTick = this.introLength/6;
-      for(color in colors) {
-        controller.flashButton(colors[color],0*introTick,1*introTick);
-        controller.flashButton(colors[color],2*introTick,3*introTick);
-        controller.flashButton(colors[color],4*introTick,5*introTick);
+      for(var color in colors) {
+        controller.flashButton(colors[color],0*introTick,introTick);
+        controller.flashButton(colors[color],2*introTick,introTick);
+        controller.flashButton(colors[color],4*introTick,introTick);
       };
     },
     displaySequence: function(sequence) {
