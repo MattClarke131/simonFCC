@@ -196,6 +196,7 @@ Simon.Controller = function(node) {
       this.model.incrementSequence();
       //Transition
       this.playIntro();
+      setTimeout(function() {controller.setDisplayPhase()},this.introLength)
     },
     setDisplayPhase: function() {
       this.currentPhase = "displayPhase";
