@@ -308,6 +308,7 @@ Simon.Controller = function(node) {
       button.onclick = function() {
         if(this.getAttribute("data-activity") === "active") {
           var buttonColor = this.getAttribute("data-color");
+          controller.flashButton(buttonColor,0,250);
           var correctGuess = controller.model.getSequence()[currentElement];
           var seqLengt = controller.model.getSequence().length
           var currentEl = controller.model.getCurrentElement();
