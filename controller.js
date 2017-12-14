@@ -151,10 +151,10 @@ Simon.Controller = function(node) {
       };
     },
 
-
     // SET PHASE FUNCTIONS
     setInitPhase: function() {
       this.currentPhase = "initPhase";
+      console.log("initPhase");
       //Displays
       this.setPowerDisplayOff();
       this.setStrictDisplayOff();
@@ -169,6 +169,7 @@ Simon.Controller = function(node) {
     },
     setOnPhase: function() {
       this.currentPhase = "onPhase";
+      console.log("onPhase");
       //Displays
       this.setPowerDisplayOn();
       this.resetGameCount();
@@ -182,6 +183,7 @@ Simon.Controller = function(node) {
     },
     setStartingPhase: function() {
       this.currentPhase = "startingPhase";
+      console.log("startingPhase");
       //Displays
       this.setPowerDisplayOn();
       this.resetGameCount();
@@ -197,6 +199,7 @@ Simon.Controller = function(node) {
     },
     setDisplayPhase: function() {
       this.currentPhase = "displayPhase";
+      console.log("displayPhase");
       //Displays
       this.setPowerDisplayOn();
       this.setGameCountDisplayOn();
@@ -216,6 +219,7 @@ Simon.Controller = function(node) {
     },
     setGuessPhase: function() {
       this.currentPhase = "guessPhase";
+      console.log("guessPhase");
       //Displays
       this.setPowerDisplayOn();
       this.setGameCountDisplayOn();
@@ -226,6 +230,7 @@ Simon.Controller = function(node) {
     },
     setWrongPhase: function() {
       this.currentPhase = "wrongPhase";
+      console.log("wrongPhase");
       //Displays
       this.setPowerDisplayOn();
       this.setGameCountDisplayOn();
@@ -236,6 +241,7 @@ Simon.Controller = function(node) {
     },
     setWinPhase: function() {
       this.curentPhase = "winPhase";
+      console.log("winPhase");
       //Displays
       this.setPowerDisplayOn();
       this.setGameCountDisplayOn();
@@ -246,6 +252,7 @@ Simon.Controller = function(node) {
     },
     setLosePhase: function() {
       this.currentPhase = "losePhase";
+      console.log("losePhase");
       //Displays
       this.setPowerDisplayOn();
       this.setGameCountDisplayOn();
