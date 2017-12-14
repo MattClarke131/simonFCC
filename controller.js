@@ -217,11 +217,6 @@ Simon.Controller = function(node) {
       this.setGameButtonsInactive();
       //Model
       this.model.resetRound();
-      //DisplaySequence
-      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      //QUESTION: Which is better?
-      //          A: Defining sequence here
-      //          B: Defining sequence in this.displaySequence();
 
       //Transition
       var sequence = this.model.getSequence();
