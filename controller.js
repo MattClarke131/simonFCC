@@ -136,10 +136,8 @@ Simon.Controller = function(node) {
     },
     setGameButtonsActive: function(color) {
       var gameButtons = this.simonGame.getElementsByClassName("gameButton");
-      for(var button in gameButtons) {
-        if(gameButtons.hasOwnProperty(gameButtons[button])) {
-          this._setElementActivity(gameButtons[button], "active");
-        };
+      for(var i = 0;i<gameButtons.length;i++) {
+        this._setElementActivity(gameButtons[i], "active");
       };
     },
     setGameButtonsInactive: function(color) {
