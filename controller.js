@@ -222,8 +222,13 @@ Simon.Controller = function(node) {
       //QUESTION: Which is better?
       //          A: Defining sequence here
       //          B: Defining sequence in this.displaySequence();
+
+      //Transition
       var sequence = this.model.getSequence();
       this.displaySequence(sequence);
+      var displayPhaseLength = sequence * this.colorDisplayLength;
+      setTimeout(function() {controller.setGuessPhase()},displayPhaseLength);
+
     },
     setGuessPhase: function() {
       this.currentPhase = "guessPhase";
