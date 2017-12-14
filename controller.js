@@ -301,9 +301,7 @@ Simon.Controller = function(node) {
       //Game buttons should be active ONLY during the guessPhase
       var gameButtons = simonGame.getElementsByClassName("gameButton");
       for(var button in gameButtons) {
-        if(gameButtons.hasOwnProperty(button)) {
-          controller._bindIndividualGameButton(button);
-        };
+        controller._bindIndividualGameButton(gameButtons[button]);
       };
     },
     _bindIndividualGameButton: function(button) {
