@@ -139,13 +139,22 @@ Simon.Controller = function(node) {
         this._setElementActivity(gameButtons[i], "active");
       };
     },
+
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // QUESTION: Why does this not work?
+    //setGameButtonsInactive: function(color) {
+    //  var gameButtons = this.simonGame.getElementsByClassName("gameButton");
+    //  for(var button in gameButtons) {
+    //    if(gameButtons.hasOwnProperty(gameButtons[button])) {
+    //      this._setElementActivity(gameButtons[button], "inactive");
+    //    };
+    //  };
+    //},
     setGameButtonsInactive: function(color) {
       var gameButtons = this.simonGame.getElementsByClassName("gameButton");
-      for(var button in gameButtons) {
-        if(gameButtons.hasOwnProperty(gameButtons[button])) {
-          this._setElementActivity(gameButtons[button], "inactive");
+      for(var i = 0; i < gameButtons.length; i++) {
+          this._setElementActivity(gameButtons[i], "inactive");
         };
-      };
     },
 
     // SET PHASE FUNCTIONS
