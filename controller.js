@@ -210,6 +210,7 @@ Simon.Controller = function(node) {
       //Displays
       this.setPowerDisplayOn();
       this.setGameCountDisplayOn();
+      this.setGameCountAmount(this.model.getSequence().length);
       //Buttons
       this.setStartButtonActive();
       this.setStrictButtonActive();
