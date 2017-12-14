@@ -60,6 +60,16 @@ Simon.Controller = function(node) {
       element.setAttribute("data-gameCount", 0);
       element.innerHTML = "--";
     },
+    _changeButtonLight: function(color, newLightStatus) {
+      var colorElement = this.simonGame.querySelector('[data-color=' + color + ']');
+      if(newLightStatus) {
+        colorElement.classList.remove("lightOff");
+        colorElement.classList.add("lightOn");
+      } else {
+        colorElement.classList.remove("lightOn");
+        colorElement.classList.add("lightOff");
+      }
+    },
     setGameButtonLightOn: function(color) {
         this._changeButtonLight(color, true);
     },
