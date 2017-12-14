@@ -334,16 +334,16 @@ Simon.Controller = function(node) {
             controller.setLosePhase();
             controller.setOnPhase();
           } else if(buttonColor !== correctGuess && !strict) {
-            controller.setDisplayPhase();
+            setTimeout(function() {controller.setDisplayPhase()},1000);
           } else if(buttonColor === correctGuess && currentEl === maxSeq -1) {
-            controller.setwinPhase();
+            controller.setWinPhase();
           } else if(buttonColor === correctGuess && currentEl < seqLength -1) {
             controller.model.incrementCurrentElement();
           } else if(buttonColor === correctGuess &&
             currentEl === seqLength -1 &&
             currentEl !== maxSeq) {
               controller.model.incrementSequence();
-              controller.setDisplayPhase();
+              setTimeout(function() {controller.setDisplayPhase()},1000);
           };
         };
       };
