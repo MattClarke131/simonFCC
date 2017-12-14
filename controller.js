@@ -262,6 +262,9 @@ Simon.Controller = function(node) {
       this.setStartButtonActive();
       this.setStrictButtonActive();
       this.setGameButtonsInactive();
+      //
+      alert("YOU WIN!");
+      this.setOnPhase();
     },
     setLosePhase: function() {
       this.currentPhase = "losePhase";
@@ -273,6 +276,9 @@ Simon.Controller = function(node) {
       this.setStartButtonActive();
       this.setStrictButtonActive();
       this.setGameButtonsInactive();
+      //
+      alert("YOU LOSE!");
+      this.setOnPhase();
     },
 
     // BUTTON BINDS
