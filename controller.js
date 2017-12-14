@@ -364,7 +364,7 @@ Simon.Controller = function(node) {
 // Temporary for debugging
 var simonGame = document.getElementsByClassName("simonGame")[0];
 var controller = Simon.Controller(simonGame);
-
+controller.initialize();
 /*
 var simonGameNodes = document.getElementsByClassName("simonGame");
 for (var i = 0; i < simonGameNodes.length; ++i) {
