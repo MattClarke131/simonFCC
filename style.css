@@ -2,41 +2,44 @@
   text-align: center;
   background-color: #CCC;
 }
-.simonGame .powerDisplay.lightOn {
+/*Display Permanent*/
+.simonGame .powerDisplay {
   background-color: #FFF;
-  height: 1em;
-  width: 1em;
-  border-radius: 1em;
-}
-.simonGame .powerDisplay.lightOff {
-  background-color: #000;
   height: 1em;
   width: 1em;
   border-radius: 1em;
 }
 .simonGame .strictDisplay.lightOn {
-  background-color: #FFF;
   height: 1em;
   width: 1em;
   border-radius: 1em;
-}
-.simonGame .strictDisplay.lightOff {
-  background-color: #000;
-  height: 1em;
-  width: 1em;
-  border-radius: 1em;
-}
-.simonGame .gameCount.lightOff {
-  background-color: #000;
-  width: 2em;
-  color: black;
 }
 .simonGame .gameCount.lightOn {
   background-color: #000;
   width: 2em;
-  color: red;
 }
 
+/*Display Temporary*/
+.simonGame .powerDisplay.lightOn {
+  background-color: #FFF;
+}
+.simonGame .powerDisplay.lightOff {
+  background-color: #000;
+}
+.simonGame .strictDisplay.lightOn {
+  background-color: #FFF;
+}
+.simonGame .strictDisplay.lightOff {
+  background-color: #000;
+}
+.simonGame .gameCount.lightOn {
+  color: red;
+}
+.simonGame .gameCount.lightOff {
+  color: black;
+}
+
+/* gameButtons permanent */
 .simonGame .gameButtons {
     position: relative;
     width: 20em;
@@ -70,28 +73,29 @@
   border-radius: 0 0 10em 0;
 }
 
-[data-color="red"].lightOff {
+/* gameButtons Temporary */
+.simonGame [data-color="red"].lightOff {
   background-color: #F99;
 }
-[data-color="red"].lightOn {
+.simonGame [data-color="red"].lightOn {
   background-color: #F00;
 }
-[data-color="blue"].lightOff {
+.simonGame [data-color="blue"].lightOff {
   background-color: #99F;
 }
-[data-color="blue"].lightOn {
+.simonGame [data-color="blue"].lightOn {
   background-color: #00F;
 }
-[data-color="yellow"].lightOff {
+.simonGame [data-color="yellow"].lightOff {
   background-color: #E5D5A5;
 }
-[data-color="yellow"].lightOn {
+.simonGame [data-color="yellow"].lightOn {
   background-color: #FF0;
 }
-[data-color="green"].lightOff{
+.simonGame [data-color="green"].lightOff{
   background-color: #9F9;
 }
-[data-color="green"].lightOn {
+.simonGame [data-color="green"].lightOn {
   background-color: #0F0;
 }
 
