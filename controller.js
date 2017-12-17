@@ -282,10 +282,6 @@ Simon.Controller = function(node) {
           return;
         } else {
           controller.setStartingPhase();
-          controller.playIntro();
-          setTimeout(function() {
-            controller.setDisplayPhase();
-          }, 4000)
         };
       };
     },
