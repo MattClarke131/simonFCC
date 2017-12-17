@@ -48,7 +48,7 @@ Simon.Controller = function(node) {
       element.setAttribute("data-gameCount", 0);
       element.innerHTML = "--";
     },
-    _changeButtonLight: function(color, newLightStatus) {
+    setGameButtonLight: function(color, newLightStatus) {
       var colorElement = this.simonGame.querySelector('[data-color=' + color + ']');
       if(newLightStatus) {
         colorElement.classList.remove("lightOff");
@@ -58,19 +58,13 @@ Simon.Controller = function(node) {
         colorElement.classList.add("lightOff");
       }
     },
-    setGameButtonLightOn: function(color) {
-        this._changeButtonLight(color, true);
-    },
-    setGameButtonLightOff: function(color) {
-        this._changeButtonLight(color, false);
-    },
 
     // DISPLAY TIMING FUNCTIONS
     flashButton: function(color, delay, length) {
       /// Accepts a string and a number in milleseconds
       var controller = this;
-      setTimeout(function() {controller.setGameButtonLightOn(color)},delay);
-      setTimeout(function() {controller.setGameButtonLightOff(color)},delay+length);
+      setTimeout(function() {controller.setGameButtonLight(color, true)},delay);
+      setTimeout(function() {controller.setGameButtonLight(color, false)},delay+length);
     },
     playIntro: function() {
       var colors = this.model.getGameColors();
