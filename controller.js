@@ -19,23 +19,19 @@ Simon.Controller = function(node) {
         element.classList.add("lightOff");
       };
     },
-    setPowerDisplay: function(value) {
+    setPowerDisplay: function(newValue) {
       var element = this.simonGame.getElementsByClassName("powerDisplay")[0];
-      this._changeDisplayLight(element,value);
+      this._changeDisplayLight(element,newValue);
     },
-    setStrictDisplayOn: function() {
+    setStrictDisplay: function(newValue) {
       var element = this.simonGame.getElementsByClassName("strictDisplay")[0];
-      this._changeDisplayLight(element, true);
-    },
-    setStrictDisplayOff: function() {
-      var element = this.simonGame.getElementsByClassName("strictDisplay")[0];
-      this._changeDisplayLight(element, false);
+      this._changeDisplayLight(element, newValue);
     },
     updateStrictDisplay: function() {
       if(this.model.getStrictStatus()) {
-        controller.setStrictDisplayOn();
+        controller.setStrictDisplay(true);;
       } else {
-        controller.setStrictDisplayOff();
+        controller.setStrictDisplay(false);;
       }
     },
     setGameCountDisplayOn: function() {
@@ -159,7 +155,7 @@ Simon.Controller = function(node) {
       console.log("initPhase");
       //Displays
       this.setPowerDisplay(false);
-      this.setStrictDisplayOff();
+      this.setStrictDisplay(false);;
       this.resetGameCount();
       this.setGameCountDisplayOff();
       //Buttons
