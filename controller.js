@@ -90,11 +90,6 @@ Simon.Controller = function(node) {
       element.setAttribute("data-activity", activity);
     },
 
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //QUESTION: Which is better?
-    //          A: Two functions: one for on, andone for off.
-    //          B: One function with a true/false argument
-
     setStartButtonActive: function() {
       this._setElementActivity(
         this.simonGame.getElementsByClassName("startButton")[0], "active"
@@ -121,17 +116,6 @@ Simon.Controller = function(node) {
         this._setElementActivity(gameButtons[i], "active");
       };
     },
-
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // QUESTION: Why does this not work?
-    //setGameButtonsInactive: function(color) {
-    //  var gameButtons = this.simonGame.getElementsByClassName("gameButton");
-    //  for(var button in gameButtons) {
-    //    if(gameButtons.hasOwnProperty(gameButtons[button])) {
-    //      this._setElementActivity(gameButtons[button], "inactive");
-    //    };
-    //  };
-    //},
     setGameButtonsInactive: function(color) {
       var gameButtons = this.simonGame.getElementsByClassName("gameButton");
       for(var i = 0; i < gameButtons.length; i++) {
