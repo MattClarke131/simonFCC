@@ -94,14 +94,9 @@ Simon.Controller = function(node) {
         this.simonGame.getElementsByClassName("startButton")[0], newActivity
       );
     },
-    setStrictButtonActive: function() {
+    setStrictButtonActivity: function(newActivity) {
       this._setElementActivity(
-        this.simonGame.getElementsByClassName("strictButton")[0], "active"
-      );
-    },
-    setStrictButtonInactive: function() {
-      this._setElementActivity(
-        this.simonGame.getElementsByClassName("strictButton")[0], "inactive"
+        this.simonGame.getElementsByClassName("strictButton")[0], newActivity
       );
     },
     setGameButtonsActive: function(color) {
@@ -128,7 +123,7 @@ Simon.Controller = function(node) {
       this.setGameCountDisplay(false);
       //Buttons
       this.setStartButtonActivity("inactive");
-      this.setStrictButtonInactive();
+      this.setStrictButtonActivity("inactive");
       this.setGameButtonsInactive();
       //Model
       this.model.initGame();
@@ -142,7 +137,7 @@ Simon.Controller = function(node) {
       this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActivity("active");
-      this.setStrictButtonActive();
+      this.setStrictButtonActivity("active");
       this.setGameButtonsInactive();
       //Model
       this.model.resetGame();
@@ -156,7 +151,7 @@ Simon.Controller = function(node) {
       this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActivity("active");
-      this.setStrictButtonActive();
+      this.setStrictButtonActivity("active");
       this.setGameButtonsInactive();
       //Model
       this.model.incrementSequence();
@@ -173,7 +168,7 @@ Simon.Controller = function(node) {
       this.setGameCountAmount(this.model.getSequence().length);
       //Buttons
       this.setStartButtonActivity("active");
-      this.setStrictButtonActive();
+      this.setStrictButtonActivity("active");
       this.setGameButtonsInactive();
       //Model
       this.model.resetRound();
@@ -193,7 +188,7 @@ Simon.Controller = function(node) {
       this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActivity("active");
-      this.setStrictButtonActive();
+      this.setStrictButtonActivity("active");
       this.setGameButtonsActive();
     },
     setWrongPhase: function() {
@@ -204,7 +199,7 @@ Simon.Controller = function(node) {
       this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActivity("active");
-      this.setStrictButtonActive();
+      this.setStrictButtonActivity("active");
       this.setGameButtonsInactive();
     },
     setWinPhase: function() {
@@ -215,7 +210,7 @@ Simon.Controller = function(node) {
       this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActivity("active");
-      this.setStrictButtonActive();
+      this.setStrictButtonActivity("active");
       this.setGameButtonsInactive();
       //
       alert("YOU WIN!");
@@ -229,7 +224,7 @@ Simon.Controller = function(node) {
       this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActivity("active");
-      this.setStrictButtonActive();
+      this.setStrictButtonActivity("active");
       this.setGameButtonsInactive();
       //
       alert("YOU LOSE!");
