@@ -99,17 +99,11 @@ Simon.Controller = function(node) {
         this.simonGame.getElementsByClassName("strictButton")[0], newActivity
       );
     },
-    setGameButtonsActive: function(color) {
+    setGameButtonsActivity: function(newActivity) {
       var gameButtons = this.simonGame.getElementsByClassName("gameButton");
       for(var i = 0;i<gameButtons.length;i++) {
-        this._setElementActivity(gameButtons[i], "active");
+        this._setElementActivity(gameButtons[i], newActivity);
       };
-    },
-    setGameButtonsInactive: function(color) {
-      var gameButtons = this.simonGame.getElementsByClassName("gameButton");
-      for(var i = 0; i < gameButtons.length; i++) {
-          this._setElementActivity(gameButtons[i], "inactive");
-        };
     },
 
     // SET PHASE FUNCTIONS
@@ -124,7 +118,7 @@ Simon.Controller = function(node) {
       //Buttons
       this.setStartButtonActivity("inactive");
       this.setStrictButtonActivity("inactive");
-      this.setGameButtonsInactive();
+      this.setGameButtonsActivity("inactive");
       //Model
       this.model.initGame();
     },
@@ -138,7 +132,7 @@ Simon.Controller = function(node) {
       //Buttons
       this.setStartButtonActivity("active");
       this.setStrictButtonActivity("active");
-      this.setGameButtonsInactive();
+      this.setGameButtonsActivity("inactive");
       //Model
       this.model.resetGame();
     },
@@ -152,7 +146,7 @@ Simon.Controller = function(node) {
       //Buttons
       this.setStartButtonActivity("active");
       this.setStrictButtonActivity("active");
-      this.setGameButtonsInactive();
+      this.setGameButtonsActivity("inactive");
       //Model
       this.model.incrementSequence();
       //Transition
@@ -169,7 +163,7 @@ Simon.Controller = function(node) {
       //Buttons
       this.setStartButtonActivity("active");
       this.setStrictButtonActivity("active");
-      this.setGameButtonsInactive();
+      this.setGameButtonsActivity("inactive");
       //Model
       this.model.resetRound();
 
@@ -189,7 +183,7 @@ Simon.Controller = function(node) {
       //Buttons
       this.setStartButtonActivity("active");
       this.setStrictButtonActivity("active");
-      this.setGameButtonsActive();
+      this.setGameButtonsActivity("active");
     },
     setWrongPhase: function() {
       this.currentPhase = "wrongPhase";
@@ -200,7 +194,7 @@ Simon.Controller = function(node) {
       //Buttons
       this.setStartButtonActivity("active");
       this.setStrictButtonActivity("active");
-      this.setGameButtonsInactive();
+      this.setGameButtonsActivity("inactive");
     },
     setWinPhase: function() {
       this.curentPhase = "winPhase";
@@ -211,7 +205,7 @@ Simon.Controller = function(node) {
       //Buttons
       this.setStartButtonActivity("active");
       this.setStrictButtonActivity("active");
-      this.setGameButtonsInactive();
+      this.setGameButtonsActivity("inactive");
       //
       alert("YOU WIN!");
       this.setOnPhase();
@@ -225,7 +219,7 @@ Simon.Controller = function(node) {
       //Buttons
       this.setStartButtonActivity("active");
       this.setStrictButtonActivity("active");
-      this.setGameButtonsInactive();
+      this.setGameButtonsActivity("inactive");
       //
       alert("YOU LOSE!");
       this.setOnPhase();
