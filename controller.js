@@ -34,13 +34,9 @@ Simon.Controller = function(node) {
         controller.setStrictDisplay(false);;
       }
     },
-    setGameCountDisplayOn: function() {
+    setGameCountDisplay: function(newValue) {
       var element = this.simonGame.getElementsByClassName("gameCount")[0];
-      this._changeDisplayLight(element, true);
-    },
-    setGameCountDisplayOff: function() {
-      var element = this.simonGame.getElementsByClassName("gameCount")[0];
-      this._changeDisplayLight(element, false);
+      this._changeDisplayLight(element, newValue);
     },
     setGameCountAmount: function(value) {
       var element = this.simonGame.getElementsByClassName("gameCount")[0];
@@ -157,7 +153,7 @@ Simon.Controller = function(node) {
       this.setPowerDisplay(false);
       this.setStrictDisplay(false);;
       this.resetGameCount();
-      this.setGameCountDisplayOff();
+      this.setGameCountDisplay(false);
       //Buttons
       this.setStartButtonInactive();
       this.setStrictButtonInactive();
@@ -171,7 +167,7 @@ Simon.Controller = function(node) {
       //Displays
       this.setPowerDisplay(true);
       this.resetGameCount();
-      this.setGameCountDisplayOn();
+      this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActive();
       this.setStrictButtonActive();
@@ -185,7 +181,7 @@ Simon.Controller = function(node) {
       //Displays
       this.setPowerDisplay(true);
       this.resetGameCount();
-      this.setGameCountDisplayOn();
+      this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActive();
       this.setStrictButtonActive();
@@ -201,7 +197,7 @@ Simon.Controller = function(node) {
       console.log("displayPhase");
       //Displays
       this.setPowerDisplay(true);
-      this.setGameCountDisplayOn();
+      this.setGameCountDisplay(true);
       this.setGameCountAmount(this.model.getSequence().length);
       //Buttons
       this.setStartButtonActive();
@@ -222,7 +218,7 @@ Simon.Controller = function(node) {
       console.log("guessPhase");
       //Displays
       this.setPowerDisplay(true);
-      this.setGameCountDisplayOn();
+      this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActive();
       this.setStrictButtonActive();
@@ -233,7 +229,7 @@ Simon.Controller = function(node) {
       console.log("wrongPhase");
       //Displays
       this.setPowerDisplay(true);
-      this.setGameCountDisplayOn();
+      this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActive();
       this.setStrictButtonActive();
@@ -244,7 +240,7 @@ Simon.Controller = function(node) {
       console.log("winPhase");
       //Displays
       this.setPowerDisplay(true);
-      this.setGameCountDisplayOn();
+      this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActive();
       this.setStrictButtonActive();
@@ -258,7 +254,7 @@ Simon.Controller = function(node) {
       console.log("losePhase");
       //Displays
       this.setPowerDisplay(true);
-      this.setGameCountDisplayOn();
+      this.setGameCountDisplay(true);
       //Buttons
       this.setStartButtonActive();
       this.setStrictButtonActive();
