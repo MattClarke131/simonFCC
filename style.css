@@ -9,12 +9,12 @@
   width: 1em;
   border-radius: 1em;
 }
-.simonGame .strictDisplay.lightOn {
+.simonGame .strictDisplay {
   height: 1em;
   width: 1em;
   border-radius: 1em;
 }
-.simonGame .gameCount.lightOn {
+.simonGame .gameCount {
   background-color: #000;
   width: 2em;
 }
