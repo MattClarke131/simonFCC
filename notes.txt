@@ -13,3 +13,16 @@ fix positioning of gameMenu contents
 Questions:
 1. When I call setInitPhase, I get a type error, but the function works as expected.
 2. Which functions should have an underscore, and which should not?
+
+Shawn:
+ the code to switch phases is very linear, recipe-oriented. you could use a data
+ structure to represent the phases instead of functions. (code and data are two parts
+ of the same coin. this is a deep principle that you'll need to get familiar with).
+ having it as data means you can update it, store it in a database, vend it from a
+ server, etc etc
+How do this?
+
+
+CSS positioning:
+www.barelyfitz.com/screencast/html-training/css/positioning/
+https://alistapart.com/article/css-positioning-101
