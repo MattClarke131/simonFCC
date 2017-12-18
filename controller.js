@@ -2,12 +2,18 @@ console.log("controller.js loaded successfully");
 
 Simon.Controller = function(node) {
   return {
-    simonGame: node,
     model: Simon.Model(),
-    currentPhase: "",
+    //Constants
     introLength: 3000,
     colorDisplayLength: 1000,
-
+    //State
+    currentPhase: "",
+    //HTML
+    simonGame: node,
+    powerDisplay: simonGame.getElementsByClassName("powerDisplay")[0],
+    strictDisplay: simonGame.getElementsByClassName("strictDisplay")[0],
+    gameCount: simonGame.getElementsByClassName("gameCount")[0],
+    gameButtons: simonGame.getElementsByClassName("gameButton"),
 
     // DISPLAY FUNCTIONS
     _changeDisplayLight: function(element, newLightStatus) {
@@ -20,12 +26,10 @@ Simon.Controller = function(node) {
       };
     },
     setPowerDisplay: function(newValue) {
-      var element = this.simonGame.getElementsByClassName("powerDisplay")[0];
-      this._changeDisplayLight(element,newValue);
+      this._changeDisplayLight(this.powerDisplay,newValue);
     },
     setStrictDisplay: function(newValue) {
-      var element = this.simonGame.getElementsByClassName("strictDisplay")[0];
-      this._changeDisplayLight(element, newValue);
+      this._changeDisplayLight(this.strictDisplay, newValue);
     },
     updateStrictDisplay: function() {
       if(this.model.getStrictStatus()) {
@@ -35,18 +39,15 @@ Simon.Controller = function(node) {
       }
     },
     setGameCountDisplay: function(newValue) {
-      var element = this.simonGame.getElementsByClassName("gameCount")[0];
-      this._changeDisplayLight(element, newValue);
+      this._changeDisplayLight(this.gameCount, newValue);
     },
     setGameCountAmount: function(value) {
-      var element = this.simonGame.getElementsByClassName("gameCount")[0];
-      element.setAttribute("data-gameCount", value);
-      element.innerHTML = value;
+      this.gameCount.setAttribute("data-gameCount", value);
+      this.gameCount.innerHTML = value;
     },
     resetGameCount: function() {
-      var element = this.simonGame.getElementsByClassName("gameCount")[0];
-      element.setAttribute("data-gameCount", 0);
-      element.innerHTML = "--";
+      this.gameCount.setAttribute("data-gameCount", 0);
+      this.gameCount.innerHTML = "--";
     },
     setGameButtonLight: function(color, newLightStatus) {
       var colorElement = this.simonGame.querySelector('[data-color=' + color + ']');
@@ -106,9 +107,8 @@ Simon.Controller = function(node) {
       );
     },
     setGameButtonsActivity: function(newActivity) {
-      var gameButtons = this.simonGame.getElementsByClassName("gameButton");
-      for(var i = 0;i<gameButtons.length;i++) {
-        this._setElementActivity(gameButtons[i], newActivity);
+      for(var i = 0;i<this.gameButtons.length;i++) {
+        this._setElementActivity(this.gameButtons[i], newActivity);
       };
     },
 
@@ -173,7 +173,6 @@ Simon.Controller = function(node) {
       this.setGameButtonsActivity("inactive");
       //Model
       this.model.resetRound();
-
       //Transition
       var sequence = this.model.getSequence();
       var controller = this;
@@ -271,9 +270,8 @@ Simon.Controller = function(node) {
     },
     bindGameButtons: function() {
       //Game buttons should be active ONLY during the guessPhase
-      var gameButtons = simonGame.getElementsByClassName("gameButton");
-      for(var button in gameButtons) {
-        controller._bindIndividualGameButton(gameButtons[button]);
+      for(var button in this.gameButtons) {
+        controller._bindIndividualGameButton(this.gameButtons[button]);
       };
     },
     _bindIndividualGameButton: function(button) {
