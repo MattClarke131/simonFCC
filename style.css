@@ -2,24 +2,78 @@
   text-align: center;
   background-color: #CCC;
 }
-/*Display Permanent*/
+/*gameMenu boxes*/
+.simonGame .powerBox {
+  position: relative;
+  width: 15%;
+  height:3em;
+  top: 0em;
+  left: 35%;
+}
+.simonGame .startBox {
+  position: relative;
+  width: 15%;
+  height: 3em;
+  left: 35%;
+}
+.simonGame .strictBox {
+  position: absolute;
+  width: 15%;
+  height: 3em;
+  top: 0em;
+  left:50%;
+}
+.simonGame .gameCountBox {
+  position: absolute;
+  width: 15%;
+  height:3em;
+  top: 3em;
+  left: 50%;
+}
+/* gameMenu contents permanent */
 .simonGame .powerDisplay {
+  position: relative;
+  float: right;
+  height: 3em;
+  width: 3em;
+  right: 7em;
+  border-radius: 100%;
   background-color: #FFF;
-  height: 1em;
-  width: 1em;
-  border-radius: 1em;
+}
+.simonGame .powerButton {
+  position: absolute;
+  height: 100%;
+  float: right;
+  right: 1em;
 }
 .simonGame .strictDisplay {
-  height: 1em;
-  width: 1em;
-  border-radius: 1em;
+  position: relative;
+  float: left;
+  left: 6.5em;
+  height: 3em;
+  width:3em;
+  border-radius: 100%;
+  background-color: #FFF;
+}
+.simonGame .strictButton {
+  position: absolute;
+  height: 100%;
+  left: 1em;
+}
+.simonGame .startButton {
+  position: absolute;
+  height: 100%;
+  right: 1em;
 }
 .simonGame .gameCount {
-  background-color: #000;
+  position: absolute;
   width: 2em;
+  font-size: 2em;
+  left: .5em;
+  background-color: #000;
 }
 
-/*Display Temporary*/
+/*gameMenu Temporary*/
 .simonGame .powerDisplay.lightOn {
   background-color: #FFF;
 }
