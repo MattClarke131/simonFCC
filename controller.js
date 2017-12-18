@@ -75,6 +75,12 @@ Simon.Controller = function(node) {
         controller.flashButton(colors[color],4*introTick,introTick);
       };
     },
+    playWrongFlash: function() {
+      var colors = this.model.getGameColors();
+      for(var color in colors) {
+        controller.flashButton(colors[color],0,500);
+      };
+    },
     displaySequence: function(sequence) {
       /// Accepts an array of strings
       var controller = this;
@@ -148,6 +154,7 @@ Simon.Controller = function(node) {
       this.setStrictButtonActivity("active");
       this.setGameButtonsActivity("inactive");
       //Model
+      this.model.resetGame();
       this.model.incrementSequence();
       //Transition
       this.playIntro();
@@ -169,9 +176,10 @@ Simon.Controller = function(node) {
 
       //Transition
       var sequence = this.model.getSequence();
-      this.displaySequence(sequence);
+      var controller = this;
+      setTimeout(function(){controller.displaySequence(sequence);},750)
       var displayPhaseLength = sequence * this.colorDisplayLength;
-      setTimeout(function() {controller.setGuessPhase()},displayPhaseLength);
+      setTimeout(function(){controller.setGuessPhase()},750+displayPhaseLength);
 
     },
     setGuessPhase: function() {
@@ -195,6 +203,10 @@ Simon.Controller = function(node) {
       this.setStartButtonActivity("active");
       this.setStrictButtonActivity("active");
       this.setGameButtonsActivity("inactive");
+      //Transition
+      this.playWrongFlash();
+      var controller = this;
+      setTimeout(function() {controller.setDisplayPhase()},1000);
     },
     setWinPhase: function() {
       this.curentPhase = "winPhase";
@@ -280,7 +292,7 @@ Simon.Controller = function(node) {
             controller.setLosePhase();
             controller.setOnPhase();
           } else if(buttonColor !== correctGuess && !strict) {
-            setTimeout(function() {controller.setDisplayPhase()},1000);
+            controller.setWrongPhase();
           } else if(buttonColor === correctGuess && currentEl === maxSeq -1) {
             controller.setWinPhase();
           } else if(buttonColor === correctGuess && currentEl < seqLength -1) {
@@ -289,7 +301,7 @@ Simon.Controller = function(node) {
             currentEl === seqLength -1 &&
             currentEl !== maxSeq) {
               controller.model.incrementSequence();
-              setTimeout(function() {controller.setDisplayPhase()},1000);
+              controller.setDisplayPhase();
           };
         };
       };
